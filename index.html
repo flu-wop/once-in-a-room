@@ -337,6 +337,12 @@
     </h2>
     <p class="text-mist mb-10">Tell us about the space and we'll follow up to schedule your call.</p>
 
+    <!-- PROSPECT DEMO — interactive mock flow. Form does not actually submit
+         anywhere (no email, no storage) — see handleBooking() below. Wire to
+         Resend (see flat-html-site skill) before this goes live for real. -->
+    <div class="mb-4 px-4 py-2 rounded-sm border border-brass/30 bg-brass/10 text-brass text-xs font-mono">
+      Demo preview — this form doesn't send yet. Not wired up.
+    </div>
     <form id="book-form" class="text-left space-y-4" onsubmit="return handleBooking(event)">
       <div class="grid sm:grid-cols-2 gap-4">
         <input type="text" required placeholder="Name"
