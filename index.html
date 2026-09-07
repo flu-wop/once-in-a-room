@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Once In A Room — Interior Design Consultation</title>
+<meta name="description" content="Once In A Room — interior design consultation. We design the one room, the one detail, that a space gets remembered for.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:     '#0D0D0F',
+          charcoal:'#17161A',
+          moss:    '#1F2E28',
+          brass:   '#B8875A',
+          brasslt: '#D3A87C',
+          ember:   '#8C4A34',
+          linen:   '#EDE6DA',
+          mist:    '#9C9184',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['IBM Plex Mono', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0D0D0F; }
+
+  .leader-line {
+    position: absolute;
+    background: #B8875A;
+    height: 1px;
+    transform-origin: left center;
+    opacity: 0.7;
+  }
+  .leader-dot {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #B8875A;
+  }
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .vignette::after {
+    content: "";
+    position: absolute; inset: 0;
+    box-shadow: inset 0 0 160px rgba(0,0,0,0.55);
+    pointer-events: none;
+  }
+  .room-photo {
+    background: radial-gradient(circle at 30% 20%, #3a2a1c 0%, #17161A 55%, #0D0D0F 100%);
+  }
+  .room-photo-2 {
+    background: radial-gradient(circle at 70% 30%, #2a3a30 0%, #17161A 55%, #0D0D0F 100%);
+  }
+  .room-photo-3 {
+    background: radial-gradient(circle at 40% 60%, #3a2620 0%, #17161A 55%, #0D0D0F 100%);
+  }
+  .fade-underline {
+    background-image: linear-gradient(#B8875A, #B8875A);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.35s ease;
+  }
+  .fade-underline:hover { background-size: 100% 1px; }
+</style>
+</head>
+
+<body class="bg-ink text-linen font-body antialiased">
+
+<!-- ===== NAV ===== -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink/70 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+    <a href="#top" class="font-display text-lg tracking-wide text-linen">Once In A Room</a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm text-mist">
+      <a href="#services" class="fade-underline hover:text-linen">Services</a>
+      <a href="#process" class="fade-underline hover:text-linen">Process</a>
+      <a href="#portfolio" class="fade-underline hover:text-linen">Portfolio</a>
+      <a href="#book" class="fade-underline hover:text-linen">Book a Consultation</a>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden text-linen" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+
+  <div id="mobile-nav" class="hidden md:hidden border-t border-white/5 bg-ink/95 px-6 py-4 space-y-3 text-sm text-mist">
+    <a href="#services" class="block">Services</a>
+    <a href="#process" class="block">Process</a>
+    <a href="#portfolio" class="block">Portfolio</a>
+    <a href="#book" class="block">Book a Consultation</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="top" class="relative min-h-screen flex items-end overflow-hidden room-photo grain vignette">
+  <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-10 pb-20 md:pb-28 w-full">
+    <p class="font-mono text-xs tracking-[0.25em] text-brass uppercase mb-6">Interior design consultation</p>
+    <h1 class="font-display text-4xl sm:text-5xl md:text-7xl leading-[1.05] max-w-3xl text-linen">
+      You don't remember<br class="hidden md:block">
+      most rooms. We design the<br class="hidden md:block">
+      <span class="italic text-brasslt">once</span> in a room.
+    </h1>
+    <div class="mt-9 flex flex-wrap items-center gap-6">
+      <a href="#book" class="inline-block bg-brass hover:bg-brasslt text-ink font-medium px-7 py-3 rounded-sm transition-colors">
+        Book a Consultation
+      </a>
+      <p class="text-sm text-mist">Virtual and in-person. Most projects start with a 30-minute call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="relative bg-moss py-24 md:py-32">
+  <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+    <p class="font-mono text-xs tracking-[0.25em] text-brass uppercase mb-6">The idea</p>
+    <h2 class="font-display text-3xl md:text-5xl leading-tight text-linen mb-8">
+      Most design fills a room.<br>
+      We design the <span class="italic text-brasslt">one thing</span> in it worth noticing.
+    </h2>
+    <p class="text-mist text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+      Once In A Room is an interior design consultancy built around a simple belief: a room
+      doesn't need more in it, it needs one considered decision done right — a lamp, a
+      layout, a material — that gives the whole space a reason to be remembered.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 mt-16 text-left">
+      <div class="border-t border-brass/30 pt-5">
+        <p class="font-display text-lg text-linen mb-1">Consultation-first</p>
+        <p class="text-sm text-mist leading-relaxed">We start with how you live in the space, not a mood board.</p>
+      </div>
+      <div class="border-t border-brass/30 pt-5">
+        <p class="font-display text-lg text-linen mb-1">Sourced, not stocked</p>
+        <p class="text-sm text-mist leading-relaxed">Every recommendation is sourced for your room specifically — nothing off a shelf.</p>
+      </div>
+      <div class="border-t border-brass/30 pt-5">
+        <p class="font-display text-lg text-linen mb-1">Built to last</p>
+        <p class="text-sm text-mist leading-relaxed">Plans that hold up in five years, not five months of trend cycles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="relative bg-ink py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="mb-16 max-w-xl">
+      <p class="font-mono text-xs tracking-[0.25em] text-brass uppercase mb-4">Services</p>
+      <h2 class="font-display text-3xl md:text-5xl text-linen leading-tight">Three ways to start.</h2>
+      <p class="text-mist mt-4">Every engagement begins with a consultation — these set the scope from there.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+
+      <div class="border border-white/10 rounded-sm p-8 flex flex-col">
+        <p class="font-mono text-xs tracking-[0.2em] text-brass uppercase mb-3">Virtual Consultation</p>
+        <h3 class="font-display text-2xl text-linen mb-3">The Session</h3>
+        <p class="text-mist text-sm leading-relaxed mb-6 flex-1">
+          A single working call on one room. You leave with a clear direction, a shortlist of
+          sourced pieces, and a layout that actually works for how you live.
+        </p>
+        <p class="font-mono text-brasslt text-lg mb-4">$225</p>
+        <a href="#book" class="text-brass fade-underline text-sm font-medium">Book this →</a>
+      </div>
+
+      <div class="border border-brass/40 rounded-sm p-8 flex flex-col relative">
+        <p class="absolute -top-3 left-8 bg-brass text-ink text-xs font-mono px-3 py-1 rounded-sm tracking-wide">Most booked</p>
+        <p class="font-mono text-xs tracking-[0.2em] text-brass uppercase mb-3">Single Room Design</p>
+        <h3 class="font-display text-2xl text-linen mb-3">The Room</h3>
+        <p class="text-mist text-sm leading-relaxed mb-6 flex-1">
+          Full concept through sourcing for one room — furniture, lighting, textiles, and a
+          styling plan, with revisions until it's right.
+        </p>
+        <p class="font-mono text-brasslt text-lg mb-4">From $1,450</p>
+        <a href="#book" class="text-brass fade-underline text-sm font-medium">Book this →</a>
+      </div>
+
+      <div class="border border-white/10 rounded-sm p-8 flex flex-col">
+        <p class="font-mono text-xs tracking-[0.2em] text-brass uppercase mb-3">Full Home Design</p>
+        <h3 class="font-display text-2xl text-linen mb-3">The Home</h3>
+        <p class="text-mist text-sm leading-relaxed mb-6 flex-1">
+          Multi-room concept and sourcing with on-site styling and install oversight, start
+          to finish.
+        </p>
+        <p class="font-mono text-brasslt text-lg mb-4">Custom quote</p>
+        <a href="#book" class="text-brass fade-underline text-sm font-medium">Book this →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="relative bg-moss py-24 md:py-32">
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+    <div class="mb-16 max-w-xl">
+      <p class="font-mono text-xs tracking-[0.25em] text-brass uppercase mb-4">Process</p>
+      <h2 class="font-display text-3xl md:text-5xl text-linen leading-tight">How it runs.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <p class="font-mono text-brass text-sm mb-3">01</p>
+        <p class="font-display text-lg text-linen mb-2">Consultation</p>
+        <p class="text-sm text-mist leading-relaxed">We talk through the room, how you use it, and what's not working yet.</p>
+      </div>
+      <div>
+        <p class="font-mono text-brass text-sm mb-3">02</p>
+        <p class="font-display text-lg text-linen mb-2">Concept</p>
+        <p class="text-sm text-mist leading-relaxed">A direction, layout, and mood board built around your space and budget.</p>
+      </div>
+      <div>
+        <p class="font-mono text-brass text-sm mb-3">03</p>
+        <p class="font-display text-lg text-linen mb-2">Sourcing</p>
+        <p class="text-sm text-mist leading-relaxed">A curated, purchasable list — furniture, lighting, materials, all specified.</p>
+      </div>
+      <div>
+        <p class="font-mono text-brass text-sm mb-3">04</p>
+        <p class="font-display text-lg text-linen mb-2">Styling &amp; Install</p>
+        <p class="text-sm text-mist leading-relaxed">On-site placement and final styling, so the room lands exactly as designed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO (signature "Room Notes" annotation section) ===== -->
+<section id="portfolio" class="relative bg-ink py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="mb-16 max-w-xl">
+      <p class="font-mono text-xs tracking-[0.25em] text-brass uppercase mb-4">Room Notes</p>
+      <h2 class="font-display text-3xl md:text-5xl text-linen leading-tight">Recent projects, annotated.</h2>
+      <p class="text-mist mt-4">Not a portfolio grid. Notes on what earned its place, and why.</p>
+    </div>
+
+    <!-- Room 1 -->
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-24 md:mb-32">
+      <div class="relative aspect-[4/5] room-photo grain vignette rounded-sm overflow-hidden">
+        <img src="img/room-reading-corner.jpg" alt="The Reading Corner" class="w-full h-full object-cover opacity-0"
+             onerror="this.style.display='none'">
+        <!-- annotation 1 -->
+        <div class="absolute top-[22%] left-[58%] leader-dot"></div>
+        <div class="absolute top-[22%] left-[calc(58%+6px)] leader-line" style="width:70px;"></div>
+        <div class="absolute top-[calc(22%-10px)] left-[calc(58%+80px)] text-xs font-mono text-brasslt max-w-[140px]">Sourced: spun-brass floor lamp</div>
+        <!-- annotation 2 -->
+        <div class="absolute top-[62%] left-[30%] leader-dot"></div>
+        <div class="absolute top-[62%] left-[calc(30%-70px)] leader-line" style="width:70px;"></div>
+        <div class="absolute top-[calc(62%-10px)] left-[calc(30%-210px)] text-xs font-mono text-brasslt max-w-[140px] text-right">Layout: reading chair angled off the wall</div>
+      </div>
+      <div>
+        <p class="font-mono text-xs tracking-[0.2em] text-brass uppercase mb-3">Project 01 · Single Room</p>
+        <h3 class="font-display text-2xl md:text-3xl text-linen mb-4">The Reading Corner</h3>
+        <p class="text-mist leading-relaxed mb-6">
+          The brief was "make this corner worth sitting in." One lamp, angled low, and a chair
+          pulled off the wall did more than a full furniture swap would have.
+        </p>
+        <a href="#book" class="text-brass fade-underline text-sm font-medium">Start a project like this →</a>
+      </div>
+    </div>
+
+    <!-- Room 2 -->
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-24 md:mb-32 md:[direction:rtl]">
+      <div class="relative aspect-[4/5] room-photo-2 grain vignette rounded-sm overflow-hidden md:[direction:ltr]">
+        <img src="img/room-entry.jpg" alt="The Entry" class="w-full h-full object-cover opacity-0"
+             onerror="this.style.display='none'">
+        <div class="absolute top-[30%] left-[40%] leader-dot"></div>
+        <div class="absolute top-[30%] left-[calc(40%+6px)] leader-line" style="width:60px;"></div>
+        <div class="absolute top-[calc(30%-10px)] left-[calc(40%+66px)] text-xs font-mono text-brasslt max-w-[140px]">Sourced: hand-blown glass vessel</div>
+      </div>
+      <div class="md:[direction:ltr]">
+        <p class="font-mono text-xs tracking-[0.2em] text-brass uppercase mb-3">Project 02 · Virtual Consultation</p>
+        <h3 class="font-display text-2xl md:text-3xl text-linen mb-4">The Entry</h3>
+        <p class="text-mist leading-relaxed mb-6">
+          A single call, one sourced piece, and a console repositioned six inches from the
+          door. The whole entry reads differently walking in now.
+        </p>
+        <a href="#book" class="text-brass fade-underline text-sm font-medium">Start a project like this →</a>
+      </div>
+    </div>
+
+    <!-- Room 3 -->
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="relative aspect-[4/5] room-photo-3 grain vignette rounded-sm overflow-hidden">
+        <img src="img/room-table.jpg" alt="The Table" class="w-full h-full object-cover opacity-0"
+             onerror="this.style.display='none'">
+        <div class="absolute top-[50%] left-[45%] leader-dot"></div>
+        <div class="absolute top-[50%] left-[calc(45%+6px)] leader-line" style="width:80px;"></div>
+        <div class="absolute top-[calc(50%-10px)] left-[calc(45%+86px)] text-xs font-mono text-brasslt max-w-[140px]">Sourced: hand-turned oak bowl, centerpiece</div>
+      </div>
+      <div>
+        <p class="font-mono text-xs tracking-[0.2em] text-brass uppercase mb-3">Project 03 · Full Home</p>
+        <h3 class="font-display text-2xl md:text-3xl text-linen mb-4">The Table</h3>
+        <p class="text-mist leading-relaxed mb-6">
+          Part of a full-home engagement — the dining room's whole plan built around one
+          object guests would actually pick up mid-conversation.
+        </p>
+        <a href="#book" class="text-brass fade-underline text-sm font-medium">Start a project like this →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="relative bg-moss py-20 md:py-28">
+  <div class="max-w-3xl mx-auto px-6 md:px-10 text-center">
+    <p class="font-display text-2xl md:text-3xl italic text-linen leading-relaxed">
+      "I expected a shopping list. What I got was a reason to walk into that room differently."
+    </p>
+    <p class="text-mist text-sm mt-6 font-mono">— Single Room Design client</p>
+  </div>
+</section>
+
+<!-- ===== BOOK / CONTACT ===== -->
+<section id="book" class="relative bg-ink py-24 md:py-32">
+  <div class="max-w-2xl mx-auto px-6 md:px-10 text-center">
+    <p class="font-mono text-xs tracking-[0.25em] text-brass uppercase mb-6">Start here</p>
+    <h2 class="font-display text-3xl md:text-5xl text-linen mb-6 leading-tight">
+      Book a consultation.<br><span class="italic text-brasslt">30 minutes, one room.</span>
+    </h2>
+    <p class="text-mist mb-10">Tell us about the space and we'll follow up to schedule your call.</p>
+
+    <form id="book-form" class="text-left space-y-4" onsubmit="return handleBooking(event)">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input type="text" required placeholder="Name"
+               class="bg-charcoal border border-white/10 text-linen placeholder-mist/60 px-5 py-3 rounded-sm text-sm w-full focus:outline-none focus:border-brass"/>
+        <input type="email" required placeholder="Email"
+               class="bg-charcoal border border-white/10 text-linen placeholder-mist/60 px-5 py-3 rounded-sm text-sm w-full focus:outline-none focus:border-brass"/>
+      </div>
+      <select required class="bg-charcoal border border-white/10 text-mist px-5 py-3 rounded-sm text-sm w-full focus:outline-none focus:border-brass">
+        <option value="" disabled selected>Which service?</option>
+        <option>Virtual Consultation — $225</option>
+        <option>Single Room Design — from $1,450</option>
+        <option>Full Home Design — custom quote</option>
+        <option>Not sure yet</option>
+      </select>
+      <textarea rows="4" placeholder="A little about the room and what's not working yet"
+                class="bg-charcoal border border-white/10 text-linen placeholder-mist/60 px-5 py-3 rounded-sm text-sm w-full focus:outline-none focus:border-brass"></textarea>
+      <button type="submit" class="w-full sm:w-auto bg-brass hover:bg-brasslt text-ink font-medium px-7 py-3 rounded-sm transition-colors">
+        Request a Consultation
+      </button>
+      <p class="text-xs text-mist font-mono">No payment now — we confirm scope and timing on the call first.</p>
+    </form>
+    <p id="book-message" class="text-xs text-mist mt-4 font-mono"></p>
+
+    <p class="text-mist text-sm mt-14">
+      Or reach us directly —
+      <a href="mailto:hello@onceinaroom.com" class="text-brass fade-underline">hello@onceinaroom.com</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="border-t border-white/5 bg-ink py-12">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="text-center md:text-left">
+      <p class="font-display text-lg text-linen">Once In A Room</p>
+      <p class="text-xs text-mist mt-1 italic">Some rooms you live in. Others you remember.</p>
+    </div>
+    <div class="flex items-center gap-6 text-sm text-mist">
+      <a href="#services" class="fade-underline hover:text-linen">Services</a>
+      <a href="#portfolio" class="fade-underline hover:text-linen">Portfolio</a>
+      <a href="#book" class="fade-underline hover:text-linen">Book</a>
+    </div>
+  </div>
+  <p class="text-center text-xs text-mist/60 mt-8">&copy; <span id="year"></span> Once In A Room. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function handleBooking(e) {
+    e.preventDefault();
+    const msg = document.getElementById('book-message');
+    msg.textContent = "Request received — we'll follow up by email to schedule your call.";
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
